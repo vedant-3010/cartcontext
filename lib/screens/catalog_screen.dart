@@ -14,15 +14,21 @@ class CatalogScreen extends StatelessWidget {
         title: Text('Catalog'),
       ),
       body: SafeArea(
-        child: Center(
-            child: Column(
-          children: [
-            CatalogProducts(),
-            ElevatedButton(
-                onPressed: () => Get.to(() => CartScreen()),
-                child: Text('Go to Cart')),
-          ],
-        )),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Column(
+            children: [
+              CatalogProducts(),
+              FloatingActionButton.extended(
+                onPressed: () {
+                  Get.to(() => CartScreen());
+                },
+                label: Text('Go to Cart'),
+                icon: Icon(Icons.shopping_cart),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

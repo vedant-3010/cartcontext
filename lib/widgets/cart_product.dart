@@ -6,6 +6,7 @@ import '../widgets/widgets.dart';
 
 class CartProducts extends StatelessWidget {
   final CartController controller = Get.find();
+
   CartProducts({Key? key}) : super(key: key);
 
   @override
@@ -45,40 +46,65 @@ class CartProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CircleAvatar(
-            radius: 30,
-            backgroundImage: NetworkImage(product.imageUrl),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          Expanded(
-            child: Text(
-              product.name,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-          ),
-          Expanded(
-            child: Text(' ${product.price.toString()}'),
-          ),
-          IconButton(
-              onPressed: () {
-                controller.removeProduct(product);
-              },
-              icon: Icon(Icons.remove_circle)),
-          Text('$quantity'),
-          IconButton(
-              onPressed: () {
-                controller.addProduct(product);
-              },
-              icon: Icon(Icons.add_circle)),
-        ],
+    return Card(
+      child: ListTile(
+        contentPadding: EdgeInsets.all(10),
+        leading: CircleAvatar(
+          radius: 30,
+          backgroundImage: NetworkImage(product.imageUrl),
+        ),
+        title: Text(product.name),
+        subtitle: Text('Price: ${product.price.toString()}'),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+                onPressed: () {
+                  controller.removeProduct(product);
+                },
+                icon: Icon(Icons.remove_circle)),
+            Text('$quantity'),
+            IconButton(
+                onPressed: () {
+                  controller.addProduct(product);
+                },
+                icon: Icon(Icons.add_circle)),
+          ],
+        ),
       ),
+      // padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      // child: Row(
+      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //   children: [
+      //     CircleAvatar(
+      //       radius: 30,
+      //       backgroundImage: NetworkImage(product.imageUrl),
+      //     ),
+      //     SizedBox(
+      //       width: 20,
+      //     ),
+      //     Expanded(
+      //       child: Text(
+      //         product.name,
+      //         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+      //       ),
+      //     ),
+      //     Expanded(
+      //       child: Text(' ${product.price.toString()}'),
+      //     ),
+      //     IconButton(
+      //         onPressed: () {
+      //           controller.removeProduct(product);
+      //         },
+      //         icon: Icon(Icons.remove_circle)),
+      //     Text('$quantity'),
+      //     IconButton(
+      //         onPressed: () {
+      //           controller.addProduct(product);
+      //         },
+      //         icon: Icon(Icons.add_circle)),
+      //   ],
+      // ),
     );
   }
 }
