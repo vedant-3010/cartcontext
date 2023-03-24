@@ -21,6 +21,8 @@ class CatalogProducts extends StatelessWidget {
   }
 }
 
+// individual product card
+
 class CatalogProductCard extends StatelessWidget {
   final cartController = Get.put(CartController());
   final ProductController productController = Get.find();
@@ -29,7 +31,40 @@ class CatalogProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Padding(
+    return Card(
+      child: ListTile(
+        contentPadding: EdgeInsets.all(10),
+        leading: CircleAvatar(
+          radius: 30,
+          backgroundImage:
+              NetworkImage(productController.products[index].imageUrl),
+        ),
+        title: Text(
+          productController.products[index].name,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+        subtitle:
+            Text(' \$ ${productController.products[index].price.toString()}'),
+        trailing: IconButton(
+          onPressed: () {
+            cartController.addProduct(productController.products[index]);
+          },
+          icon: Icon(Icons.add_circle),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+// return Padding(
     //     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
     //     child: Row(
     //       children: [
@@ -58,26 +93,4 @@ class CatalogProductCard extends StatelessWidget {
     //             icon: Icon(Icons.add_circle)),
     //       ],
     //     ));
-    return Card(
-      child: ListTile(
-        contentPadding: EdgeInsets.all(10),
-        leading: CircleAvatar(
-          radius: 30,
-          backgroundImage:
-              NetworkImage(productController.products[index].imageUrl),
-        ),
-        title: Text(
-          productController.products[index].name,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-        ),
-        subtitle:
-            Text(' \$ ${productController.products[index].price.toString()}'),
-        trailing: IconButton(
-            onPressed: () {
-              cartController.addProduct(productController.products[index]);
-            },
-            icon: Icon(Icons.add_circle)),
-      ),
-    );
-  }
-}
+    //   }, 

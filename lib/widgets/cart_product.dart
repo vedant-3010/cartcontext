@@ -72,39 +72,6 @@ class CartProductCard extends StatelessWidget {
           ],
         ),
       ),
-      // padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      // child: Row(
-      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //   children: [
-      //     CircleAvatar(
-      //       radius: 30,
-      //       backgroundImage: NetworkImage(product.imageUrl),
-      //     ),
-      //     SizedBox(
-      //       width: 20,
-      //     ),
-      //     Expanded(
-      //       child: Text(
-      //         product.name,
-      //         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-      //       ),
-      //     ),
-      //     Expanded(
-      //       child: Text(' ${product.price.toString()}'),
-      //     ),
-      //     IconButton(
-      //         onPressed: () {
-      //           controller.removeProduct(product);
-      //         },
-      //         icon: Icon(Icons.remove_circle)),
-      //     Text('$quantity'),
-      //     IconButton(
-      //         onPressed: () {
-      //           controller.addProduct(product);
-      //         },
-      //         icon: Icon(Icons.add_circle)),
-      //   ],
-      // ),
     );
   }
 }

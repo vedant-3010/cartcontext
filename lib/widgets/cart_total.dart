@@ -24,19 +24,6 @@ class CartTotal extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
-        // child: Row(
-        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //   children: [
-        //     Text(
-        //       'Total:',
-        //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        //     ),
-        //     Text(
-        //       '\$${controller.total}',
-        //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        //     ),
-        //   ],
-        // ),
       ),
     );
   }
